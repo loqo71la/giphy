@@ -1,0 +1,42 @@
+name: Production Deployment
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  web-client-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v3.3.0
+        with:
+          node-version: '16.x'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Generate .env file
+        env:
+          GY_API_URL: ${{ secrets.GY_API_URL }}
+          GY_API_KEY: ${{ secrets.GY_API_KEY }}
+        run: |
+          touch .env.production
+          echo REACT_APP_API_URL="$GY_API_URL" >> .env.production
+          echo REACT_APP_API_KEY="$GY_API_KEY" >> .env.production
+        shell: bash
+
+      - name: Build project
+        run: npm run build
+
+      - name: Deploy to Firebase
+        uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: '${{ secrets.GITHUB_TOKEN }}'
+          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_GIPHY_LOQO71LA }}'
+          channelId: live
+          projectId: giphy-loqo71la
