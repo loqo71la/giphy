@@ -1,3 +1,19 @@
+:root {
+  --gy-text-primary: #000000;
+  --gy-text-secondary: #9b9b9b;
+  --gy-text-btn-rounded-hover: #f7f7f7;
+  --gy-text-btn-action: red;
+
+  --gy-bg-primary: #dbdbdb;
+  --gy-bg-navbar: white;
+  --gy-bg-card: white;
+  --gy-bg-btn-rounded-hover: #9b9b9b;
+  --gy-bg-btn-action: white;
+  --gy-bg-btn-action-hover: #eeeeee;
+
+  --gy-bg-btn-light-shadow: rgba(0, 0, 0, 0.25);
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Roboto', 'Oxygen',
@@ -5,7 +21,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: gainsboro;
+  background-color: var(--gy-bg-primary);
 }
 
 h1,
@@ -21,7 +37,7 @@ li {
 }
 
 p {
-  color: #5e5e5e;
+  color: var(--gy-bg-secondary);
   font-size: small;
 }
 
@@ -32,14 +48,14 @@ button {
 }
 
 input {
-  background-color: #eeeeee;
+  background-color: var(--gy-bg-primary);
   padding: .75rem 2.25rem;
 }
 
 // Common styles
 .input-group {
   svg {
-    color: gray;
+    color: var(--gy-text-secondary);
     position: absolute;
     margin-top: .6rem;
     margin-left: .55rem;
@@ -48,12 +64,16 @@ input {
   }
 }
 
-.navbar {
+.navbar,
+.pagination {
   display: flex;
-  gap: .75rem;
-  padding: .85rem;
+  gap: .5rem;
   align-items: center;
-  background-color: white;
+}
+
+.navbar {
+  padding: .85rem;
+  background-color: var(--gy-bg-navbar);
 }
 
 .navbar-center {
@@ -68,8 +88,8 @@ input {
   padding: .75rem 1.5rem;
 
   &:hover {
-    background-color: #9b9b9b;
-    color: #f7f7f7;
+    background-color: var(--gy-bg-btn-rounded-hover);
+    color: var(--gy-text-btn-rounded-hover);
   }
 }
 
@@ -84,7 +104,7 @@ input {
     position: relative;
 
     section.gif-card {
-      background-color: white;
+      background-color: var(--gy-bg-card);
       border-radius: .5rem;
       padding: .5rem;
 
@@ -102,15 +122,15 @@ input {
       width: 3.5rem;
       height: 3.5rem;
       border: none;
-      color: red;
+      color: var(--gy-text-btn-action);
       position: absolute;
       border-radius: .5rem;
-      background-color: white;
+      background-color: var(--gy-bg-btn-action);
       transform: translate(-50%, -50%);
       -ms-transform: translate(-50%, -50%);
 
       &:active {
-        background-color: #eeeeee;
+        background-color: var(--gy-bg-btn-action-hover);
       }
     }
 
@@ -121,7 +141,7 @@ input {
       section.gif-card {
         opacity: 0.3;
         background-color: #eeeeee;
-        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2), 0 2px 4px -2px rgba(0, 0, 0, 0.2);
+        box-shadow: 0 4px 6px -1px var(--gy-bg-btn-light-shadow), 0 2px 4px -2px var(--gy-bg-btn-light-shadow);
       }
 
       button {
@@ -134,4 +154,21 @@ input {
 .loader {
   padding-top: 2rem;
   text-align: center;
+}
+
+.pagination {
+  padding-left: 1rem;
+  padding-top: .75rem;
+
+  button {
+    border: none;
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: .5rem;
+    background-color: var(--gy-bg-btn-action);
+
+    &:active {
+      background-color: var(--gy-bg-btn-action-hover);
+    }
+  }
 }

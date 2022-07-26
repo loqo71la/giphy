@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Gif } from '../shared/models/Gif';
 
-export function UseSavedGifs(): [Gif[], (gifs: Gif[]) => void] {
+export function useSavedGifs(): [Gif[], (gifs: Gif[]) => void] {
   const [gifs, setGifts] = useState<Gif[]>(() => {
     try {
       const gifs = window.localStorage.getItem('gifs');

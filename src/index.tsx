@@ -1,11 +1,13 @@
 import React from 'react';
+import { Provider } from 'react-redux';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 
 import './index.scss';
 import reportWebVitals from './reportWebVitals';
-import SearchPage from './pages/SearchPage';
 import MySavedGifsPage from './pages/MySavedGifsPage';
+import SearchPage from './pages/SearchPage';
+import { store } from './store';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -13,11 +15,13 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-      <Routes>
+      <Provider store={store}>
+        <Routes>
           <Route path="/" element={<Navigate replace to="/search" />} />
           <Route path="/search" element={<SearchPage />} />
           <Route path="/my-saved-gifs" element={<MySavedGifsPage />} />
-      </Routes>
+        </Routes>
+      </Provider>
     </BrowserRouter>
   </React.StrictMode>
 );
