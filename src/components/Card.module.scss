@@ -1,0 +1,51 @@
+.card {
+  width: 200px;
+  position: relative;
+  list-style-type: none;
+  background-color: var(--gy-bg-card);
+
+  h2,
+  p {
+    padding: 0rem .25rem;
+    margin-top: 0rem;
+    margin-bottom: .35rem;
+    font-size: small;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  button {
+    opacity: 0;
+    top: 50%;
+    left: 50%;
+    width: 3.5rem;
+    height: 3.5rem;
+    position: absolute;
+    border-radius: .5rem;
+    color: var(--gy-text-btn-action);
+    background-color: var(--gy-bg-btn-action);
+    box-shadow: 0 4px 6px -1px var(--gy-bg-btn-light-shadow), 0 2px 4px -2px var(--gy-bg-btn-light-shadow);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+
+    &:hover {
+      background-color: var(--gy-bg-btn-action-hover);
+    }
+  }
+
+  &:hover {
+    transition-duration: .3s;
+    transform: translateY(-0.25rem);
+    box-shadow: 0 4px 6px -1px var(--gy-bg-btn-light-shadow), 0 2px 4px -2px var(--gy-bg-btn-light-shadow);
+
+    section {
+      opacity: 0.2;
+      background-color: var(--gy-bg-btn-action-hover);
+    }
+
+    button {
+      opacity: 1;
+    }
+  }
+}

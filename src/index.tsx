@@ -3,7 +3,7 @@ import { Provider } from 'react-redux';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 
-import './index.scss';
+import './styles/index.scss';
 import reportWebVitals from './reportWebVitals';
 import MySavedGifsPage from './pages/MySavedGifsPage';
 import SearchPage from './pages/SearchPage';

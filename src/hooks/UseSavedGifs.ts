@@ -1,10 +1,10 @@
 import { useState } from 'react';
-import { Gif } from '../shared/models/Gif';
+import { Item } from '../shared/models/Item';
 
-export function useSavedGifs(): [Gif[], (gifs: Gif[]) => void] {
-  const [gifs, setGifts] = useState<Gif[]>(() => {
+export function useSavedGifs(): [Item[], (gifs: Item[]) => void] {
+  const [gifs, setGifts] = useState<Item[]>(() => {
     try {
-      const gifs = window.localStorage.getItem('gifs');
+      const gifs = window.localStorage.getItem('savedGifs');
       return gifs ? JSON.parse(gifs) : [];
     } catch (error) {
       console.log(error);
@@ -12,10 +12,10 @@ export function useSavedGifs(): [Gif[], (gifs: Gif[]) => void] {
     }
   });
 
-  const saveGift = (gifs: Gif[]) => {
+  const saveGift = (gifs: Item[]) => {
     try {
       setGifts(gifs);
-      window.localStorage.setItem('gifs', JSON.stringify(gifs));
+      window.localStorage.setItem('savedGifs', JSON.stringify(gifs));
     } catch (error) {
       console.error(error);
     }

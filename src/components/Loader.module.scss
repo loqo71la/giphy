@@ -1,0 +1,27 @@
+.loader {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  svg {
+    animation: spin 1s linear infinite;
+    color: var(--gy-text-spinner);
+    width: 3.5rem;
+    height: 3.5rem;
+
+    circle {
+      opacity: .25;
+    }
+
+    path {
+      opacity: .75;
+    }
+  }
+}
+
+@keyframes spin {
+  100% {
+    transform: rotate(1turn);
+  }
+}

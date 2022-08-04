@@ -1,0 +1,37 @@
+.navbar {
+  padding: .85rem;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--gy-bg-navbar);
+
+  button,
+  a {
+    color: var(--gy-text-navbar);
+    font-weight: 600;
+  }
+  
+  button {
+    background: linear-gradient(45deg, var(--gy-text-navbar-dark) 0%, var(--gy-text-navbar-action) 100%);
+    padding: .75rem 1.5rem;
+    font-size: .85rem;
+    
+    &:hover {
+      background: linear-gradient(0deg, var(--gy-text-navbar-dark), var(--gy-text-navbar-action) 100%);
+      color: var(--gy-text-btn-rounded-hover);
+    }
+  }
+  
+  span {
+    padding-bottom: .15rem;
+    &:hover {
+      border-bottom: .2rem solid var(--gy-text-navbar-action);
+    }
+    
+    a {
+      font-size: .95rem;
+      text-decoration: none;
+    }
+  }
+}
