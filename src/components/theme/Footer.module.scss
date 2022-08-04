@@ -1,0 +1,30 @@
+.footer {
+  margin-top: 1.5rem;
+  padding-top: 3.5rem;
+  padding-bottom: 1rem;
+  background-color: var(--gy-bg-footer);
+  color: var(--gy-text-footer);
+  text-align: center;
+  
+  div {
+    display: flex;
+    justify-content: center;
+    margin-bottom: .5rem;
+    gap: .35rem;
+  }
+  
+  p {
+    margin: 0rem;
+    font-size: .85rem;
+    a {
+      font-weight: bold;
+      color: var(--gy-text-footer);
+      margin-left: .3rem;
+      text-decoration: none;
+
+      &:hover {
+        color: var(--gy-text-footer-hover);
+      }
+    }
+  }
+}

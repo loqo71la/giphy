@@ -1,0 +1,23 @@
+.pagination {
+  display: flex;
+  gap: .75rem;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem 0rem;
+
+  p {
+    margin: 0rem;
+  }
+
+  button {
+    border: none;
+    width: 2rem;
+    height: 2rem;
+    border-radius: .5rem;
+    background-color: var(--gy-bg-btn-action);
+
+    &:active {
+      background-color: var(--gy-bg-btn-action-hover);
+    }
+  }
+}
