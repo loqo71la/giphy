@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 
-import { api } from '../App.config';
 import { Item } from '../shared/models/Item';
+import { loadSearchUrl, loadTrendingUrl } from '../shared/utils/UrlUtil';
+import { RootState } from '../store';
 import { SearchRequest } from '../shared/models/SearchRequest';
 import { toSearch } from '../shared/utils/MapperUtil';
-import { RootState } from '../store';
 import { useSavedGifs } from '../hooks/UseSavedGifs';
 
 import Grid from '../components/Grid';
@@ -16,7 +16,8 @@ import Navbar from '../components/theme/Navbar';
 import Pagination from '../components/Pagination';
 
 export default function SearchPage() {
-  const [search, setSearch] = useState<SearchRequest>({ loading: true, title: 'Trending GIFs' });
+  const [req, setReq] = useState({ url: loadTrendingUrl(), title: 'Trending GIFs' });
+  const [search, setSearch] = useState<SearchRequest>({ loading: true });
   const query = useSelector((task: RootState) => task.query);
   const [gifs, setGifs] = useSavedGifs();
 
@@ -28,22 +29,27 @@ export default function SearchPage() {
   };
 
   const onSearch = async (offset: number = 0) => {
-    setSearch({ ...search, loading: true });
-    const baseUrl = query.value ? `${api.searchUrl}&q=${query.value}` : `${api.trendingUrl}&rating=g`;
-    const response = await fetch(`${baseUrl}&limit=${api.limit}&offset=${offset}`);
-    const data = await response.json();
+    const url = query.value ? loadSearchUrl(query.value, offset): loadTrendingUrl(offset);
     const title = query.value ? `"${query.value}" GIFs` : 'Trending GIFs';
-    setSearch({ ...toSearch(data), title });
+    setReq({ url, title });
   };
 
-  useEffect(() => { onSearch() }, []);
+  useEffect(() => {
+    const fetchGifs = async () => {
+      setSearch({ loading: true });
+      const response = await fetch(req.url);
+      const data = await response.json();
+      setSearch(toSearch(data));
+    };
+    fetchGifs();
+  }, [req.url]);
 
   return (
     <Layout navbar={<Navbar onSearch={onSearch} />}>
       {search.loading ?
         <Loader /> :
         <>
-          <Pagination pageable={search.pageable!} title={search.title!} onSelect={offset => onSearch(offset)} />
+          <Pagination pageable={search.pageable!} title={req.title} onSelect={offset => onSearch(offset)} />
           <Grid items={search.items!} icon={<HeartIcon />} onSelect={onSelect} />
         </>
       }
