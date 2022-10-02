@@ -1,6 +1,4 @@
-import GithubIcon from './components/icons/GithubIcon';
-import HackerrankIcon from './components/icons/HackrankIcon';
-import TelegramIcon from './components/icons/TelegramIcon';
+import { GitHub, HackerRank, Npm, Telegram } from "@loqo71la/react-web-icons";
 
 export const api = {
   searchUrl: `${process.env.REACT_APP_API_URL}/search?api_key=${process.env.REACT_APP_API_KEY}`,
@@ -10,9 +8,10 @@ export const api = {
 };
 
 export const socialLinks = [
-  { link: 'https://t.me/loqo71la', icon: TelegramIcon },
-  { link: 'https://github.com/loqo71la', icon: GithubIcon },
-  { link: 'https://www.hackerrank.com/loqo71la', icon: HackerrankIcon },
+  { link: 'https://t.me/loqo71la', icon: Telegram },
+  { link: 'https://github.com/loqo71la', icon: GitHub },
+  { link: 'https://www.npmjs.com/~loqo71la', icon: Npm },
+  { link: 'https://www.hackerrank.com/loqo71la', icon: HackerRank }
 ];
 
 export const sizes = [420, 640, 860, 1080, 1280];

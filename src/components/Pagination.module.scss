@@ -11,13 +11,17 @@
 
   button {
     border: none;
-    width: 2rem;
-    height: 2rem;
     border-radius: .5rem;
     background-color: var(--gy-bg-btn-action);
 
     &:active {
       background-color: var(--gy-bg-btn-action-hover);
+    }
+
+    svg {
+      width: 1rem;
+      height: 1rem;
+      padding: .35rem .05rem .2rem .05rem;
     }
   }
 }

@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Trash2Fill } from '@loqo71la/react-web-icons';
 
 import { api } from '../App.config';
 import { Item } from '../shared/models/Item';
@@ -7,7 +8,6 @@ import { useSavedGifs } from '../hooks/UseSavedGifs';
 import Grid from '../components/Grid';
 import Layout from '../components/theme/Layout';
 import Pagination from '../components/Pagination';
-import TrashIcon from '../components/icons/TrashIcon';
 import SavedNavbar from '../components/theme/SavedNavbar';
 
 export default function MySavedGifsPage() {
@@ -30,7 +30,7 @@ export default function MySavedGifsPage() {
     <Layout navbar={<SavedNavbar />}>
       <>
         <Pagination pageable={pageable} title="Saved GIFs" onSelect={offset => setOffset(offset)} />
-        <Grid items={gifs} icon={<TrashIcon />} onSelect={onSelect} />
+        <Grid items={gifs} icon={<Trash2Fill title='Remove' />} onSelect={onSelect} />
       </>
     </Layout>
   );

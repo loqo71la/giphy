@@ -9,11 +9,11 @@ import { toSearch } from '../shared/utils/MapperUtil';
 import { useSavedGifs } from '../hooks/UseSavedGifs';
 
 import Grid from '../components/Grid';
-import HeartIcon from '../components/icons/Heartcon';
 import Layout from '../components/theme/Layout';
 import Loader from '../components/Loader';
 import Navbar from '../components/theme/Navbar';
 import Pagination from '../components/Pagination';
+import { HeartFill } from '@loqo71la/react-web-icons';
 
 export default function SearchPage() {
   const [req, setReq] = useState({ url: loadTrendingUrl(), title: 'Trending GIFs' });
@@ -50,7 +50,7 @@ export default function SearchPage() {
         <Loader /> :
         <>
           <Pagination pageable={search.pageable!} title={req.title} onSelect={offset => onSearch(offset)} />
-          <Grid items={search.items!} icon={<HeartIcon />} onSelect={onSelect} />
+          <Grid items={search.items!} icon={<HeartFill title="Save" />} onSelect={onSelect} />
         </>
       }
     </Layout>

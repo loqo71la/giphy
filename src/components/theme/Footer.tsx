@@ -13,7 +13,7 @@ export default function Footer() {
             href={social.link}
             rel="noopener noreferrer"
           >
-            {<social.icon />}
+            {<social.icon className="social-link" />}
           </a>
         ))}
       </div>

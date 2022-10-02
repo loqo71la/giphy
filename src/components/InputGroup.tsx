@@ -1,9 +1,9 @@
+import { Search } from '@loqo71la/react-web-icons';
 import { ChangeEvent } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { RootState } from '../store';
 import { setQuery } from '../store/querySlice';
-import SearchIcon from './icons/SearchIcon';
 
 export default function InputGroup() {
   const { value } = useSelector((task: RootState) => task.query);
@@ -15,7 +15,7 @@ export default function InputGroup() {
 
   return (
     <div className="input-group">
-      <SearchIcon />
+      <Search />
       <input type="text" value={value} onChange={handleChange} />
     </div>
   );
