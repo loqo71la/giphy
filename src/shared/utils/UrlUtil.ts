@@ -1,4 +1,4 @@
-import { api } from '../../App.config';
+import { api } from '../../config';
 
 export function loadTrendingUrl(offset: number = 0): string {
   return `${api.trendingUrl}&rating=g&limit=${api.limit}&offset=${offset}`;

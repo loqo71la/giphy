@@ -1,4 +1,4 @@
-import { socialLinks } from '../../App.config';
+import { socialLinks } from '../../config';
 
 import style from './Footer.module.scss';
 
@@ -13,11 +13,11 @@ export default function Footer() {
             href={social.link}
             rel="noopener noreferrer"
           >
-            {<social.icon className="social-link" />}
+            {<social.icon className="social-link" title={social.title} />}
           </a>
         ))}
       </div>
-      <p className="text-sm mt-4 text-gray-400">
+      <p>
         © 2022
         <a
           target="_blank"

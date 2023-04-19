@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Trash2Fill } from '@loqo71la/react-web-icons';
 
-import { api } from '../App.config';
+import { api } from '../config';
 import { Item } from '../shared/models/Item';
 import { useSavedGifs } from '../hooks/UseSavedGifs';
 

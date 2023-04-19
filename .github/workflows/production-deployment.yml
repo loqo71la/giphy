@@ -22,12 +22,12 @@ jobs:
 
       - name: Generate .env file
         env:
-          GY_API_URL: ${{ secrets.GY_API_URL }}
-          GY_API_KEY: ${{ secrets.GY_API_KEY }}
+          VITE_API_URL: ${{ secrets.VITE_API_URL }}
+          VITE_API_KEY: ${{ secrets.VITE_API_KEY }}
         run: |
           touch .env.production
-          echo REACT_APP_API_URL="$GY_API_URL" >> .env.production
-          echo REACT_APP_API_KEY="$GY_API_KEY" >> .env.production
+          echo VITE_API_URL="$VITE_API_URL" >> .env.production
+          echo VITE_API_KEY="$VITE_API_KEY" >> .env.production
         shell: bash
 
       - name: Build project

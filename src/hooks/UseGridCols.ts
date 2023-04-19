@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-import { sizes } from '../App.config';
+import { sizes } from '../config';
 import { Item } from '../shared/models/Item';
 
 export function useGridCols(items: Item[]) {
